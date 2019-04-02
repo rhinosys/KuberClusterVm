@@ -1,0 +1,9 @@
+[masters]
+master ansible_host=console.rhinosys.eu ansible_user=root
+
+[workers]
+worker1 ansible_host=node010.rhinosys.eu ansible_user=root
+worker2 ansible_host=node011.rhinosys.eu ansible_user=root
+worker3 ansible_host=node012.rhinosys.eu ansible_user=root
+worker4 ansible_host=node013.rhinosys.eu ansible_user=root
+worker5 ansible_host=node014.rhinosys.eu ansible_user=root
