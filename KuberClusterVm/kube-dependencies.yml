@@ -13,8 +13,8 @@
        state: started
        enabled: yes
 
-   - name: disable SELinux
-     command: setenforce 0
+   #- name: disable SELinux
+   #  command: setenforce 0
 
    - name: disable SELinux on reboot
      selinux:
@@ -56,6 +56,22 @@
        name: kubelet
        enabled: yes
        state: started
+   
+   - name: Stop firewalld
+     service:
+       name: firewalld
+       enabled: no
+       state: stopped
+       
+   - name: Remove swapfile from /etc/fstab
+     mount:
+        name: swap
+        fstype: swap
+        state: absent
+   
+   - name: Disable swap
+     command: swapoff -a
+     when: ansible_swaptotal_mb > 0
 
 - hosts: master
   become: yes
